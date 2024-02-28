@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR CODE GENETRATOR</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body {
+            margin: 0px 50px;
+            font-family: monospace;
+            background-color: pink;
+        }
+        .header-title{
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color:salmon;
+            gap: 15px;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 100px;
+        }
+        form input {
+            font-size: medium;
+            padding: 0.5rem 1rem;
+            width: 50%;
+            background-color: whitesmoke;
+            color: salmon;
+            border: none;
+            border-radius: 15px;
+        }
+        form button{
+            font-size: medium;
+            background: salmon;
+            border: none;
+            color: whitesmoke;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+        .generated {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-title">
+        <h1>Welcome to QR Code generator</h1>
+        <h3>Please insert a link you want to generate a QR Code for</h3> 
+    </div>
+
+    <form action="/" method="POST">
+    <input type="text" name="link">
+    <button type="submit">generate</button>
+    </form>
+    {% if data %}
+    <div class="generated">
+        <img src="{{data}}" alt="generated QR"/>
+    </div>
+    {% endif %}
+</body>
+</html>
